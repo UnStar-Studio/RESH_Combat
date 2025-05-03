@@ -1,0 +1,485 @@
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Стили для вкладок */
+.game, .settings, .shop {
+    display: none;
+    flex: 1;
+    flex-direction: column;
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 70px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.game.active, .settings.active, .shop.active {
+    display: flex;
+}
+
+/* Стили для игровой вкладки */
+.gameHeaderText {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4CAF50;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.coinCountText {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+    color: #4CAF50;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Roboto Mono', monospace;
+}
+
+.mainButton {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: radial-gradient(circle, #4CAF50, #2E7D32);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 
+                inset 0 -5px 10px rgba(0, 0, 0, 0.3),
+                inset 0 5px 10px rgba(255, 255, 255, 0.1);
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.mainButton::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.mainButton:hover::after {
+    opacity: 1;
+}
+
+.mainButton:active {
+    transform: scale(0.95);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5), 
+                inset 0 -5px 10px rgba(0, 0, 0, 0.3),
+                inset 0 5px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Стили для магазина */
+.ShopButtons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.promoButton, .giftButton {
+    padding: 12px 24px;
+    background: rgba(76, 175, 80, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    color: #fff;
+}
+
+.promoButton:hover, .giftButton:hover {
+    background: rgba(76, 175, 80, 0.3);
+}
+
+.promoButton.active, .giftButton.active {
+    background: rgba(76, 175, 80, 0.4);
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+.CoinsText {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #4CAF50;
+    text-align: center;
+}
+
+.GiftExchanger {
+    background: rgba(30, 30, 30, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.tokenByButton {
+    padding: 10px 15px;
+    background: linear-gradient(to right, #4CAF50, #2E7D32);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tokenByButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+.Gifts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.Gift {
+    background: rgba(30, 30, 30, 0.7);
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    text-align: center;
+}
+
+.Gift:hover {
+    transform: translateY(-5px);
+    background: rgba(76, 175, 80, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.GiftName {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+.GiftContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.GiftImg {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.GiftBuyButton {
+    padding: 8px 12px;
+    background: linear-gradient(to right, #4CAF50, #2E7D32);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.GiftBuyButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.GiftPrice {
+    font-size: 14px;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Стили для промокодов */
+.promoHeader {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #fff;
+}
+
+.promoInput {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(30, 30, 30, 0.7);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.promoInput:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.promoButton {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #4CAF50, #2E7D32);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.promoButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+/* Стили для настроек */
+.settings {
+    text-align: center;
+}
+
+.settings p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #4CAF50;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    background: rgba(30, 30, 30, 0.7);
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.social-link:hover {
+    background: rgba(76, 175, 80, 0.1);
+    transform: translateY(-2px);
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Нижнее меню */
+.DownMenu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    border-top: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.shopSwitchButton, .settingsSwitchButton, .gameSwitchButton {
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.shopSwitchButton.active, .settingsSwitchButton.active, .gameSwitchButton.active {
+    color: #4CAF50;
+    background: rgba(76, 175, 80, 0.1);
+    transform: translateY(-5px);
+}
+
+.shopSwitchButton::before {
+    content: "🛒";
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.settingsSwitchButton::before {
+    content: "⚙️";
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.gameSwitchButton::before {
+    content: "🎮";
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* Кастомный алерт */
+.custom-alert {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.custom-alert-content {
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    position: relative;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #4CAF50;
+    transform: rotate(90deg);
+}
+
+#customAlertMessage {
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+}
+
+#customAlertConfirm {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #4CAF50, #2E7D32);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+#customAlertConfirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+/* Coming soon стиль */
+.coming-soon {
+    text-align: center;
+    margin-top: 50px;
+    color: #4CAF50;
+    font-size: 24px;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.7; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.7; transform: scale(0.95); }
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .Gifts {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .mainButton {
+        width: 150px;
+        height: 150px;
+    }
+
+    .coinCountText {
+        font-size: 36px;
+    }
+    
+    .gameHeaderText {
+        font-size: 24px;
+    }
+}

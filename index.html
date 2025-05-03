@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РЕШАЙся Combat</title>
+
+    <link rel="stylesheet" href="mainStyle.css">
+</head>
+<body>
+    <!--РЕШАЙСЯ Combat 2.0-->
+    <div class = "content">
+
+        <div>
+        
+            <div class = "settings" id = "settingsTab">
+                <p>Настройки</p>
+                <div class="social-links">
+                    <a href="https://t.me/reshaysyaa" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" class="social-icon">
+                        Telegram
+                    </a>
+                    <a href="https://www.youtube.com/@reshaysya" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="social-icon">
+                        YouTube
+                    </a>
+                </div>
+                <p>«РЕШАЙся» — образовательный проект ГБОУ Школа №1542 для учеников, учителей и родителей. Подписывайся и решайся быть в команде профессионалов вместе с нами!</p>
+            </div>
+            <!---->
+            <div class = "game" id = "gameTab">
+
+                <p class="gameHeaderText">РЕШАЙся Combat</p>
+    
+                <div>
+                    <p class = "coinCountText" id = "mainTxt" >0</p>
+                    <img class = "mainButton" id = "mainBtn" src = "buttom.jpg" style="border-radius: 750px; width: 75%; height: 75%;">
+                </div>
+            </div>
+            <!---->
+            <div class = "shop" id = "shopTab">
+                <div class = "ShopButtons">
+                    <div class = "promoButton" id = "promoBtn">Промокоды</div>
+                    <div class = "giftButton" id = "giftBtn">Магазин</div>
+                </div>
+                <div class = "Gifts" id = "GiftsTab">
+                    <p>Магазин будет доступен в следующих версиях</p>
+                    
+                </div>
+                <div class = "promocode" id = "PromoTab">
+                    <p class = CoinsText id = CoinsTxt>Коинов: 0</p>
+                    <p class="promoHeader">Введите ваш промокод</p>
+                    <div>
+                        <input class = "promoInput" placeholder = "Промокод..." id = "promoInp"> 
+                        <button class = "promoButton" id = "promoBtn2">Ввести</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="DownMenu">
+            <div class="shopSwitchButton" id = "shopSwitchBtn">Магазин</div>
+            <div class="gameSwitchButton" id = "gameSwitchBtn">Игра</div>
+            <div class="settingsSwitchButton" id = "settingsSwitchBtn">Настройки</div>
+        </div>
+    </div>
+
+    <!--js-->
+    <script src = "Clicker.js"></script> <!--Основная логица клмкера-->
+    <script src = "SwitchTab.js"></script> <!--Переключение вкладок-->
+
+    <div id="customAlert" class="custom-alert">
+        <div class="custom-alert-content">
+            <span id="customAlertClose" class="close-btn">&times;</span>
+            <p id="customAlertMessage"></p>
+            <button id="customAlertConfirm">OK</button>
+        </div>
+    </div>
+
+</body>
+</html>
